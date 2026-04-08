@@ -4,7 +4,7 @@ import PokemonsList from "./components/PokemonsList";
 function Home() {
   return (
     <div>
-      <PokemonsList />
+      {/* <PokemonsList /> */}
       <LocationList />
     </div>
   );

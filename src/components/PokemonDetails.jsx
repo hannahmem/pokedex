@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import NavBar from "./NavBar";
 
 function PokemonDetails() {
   const [pokemon, setPokemon] = useState(null);
@@ -16,10 +17,15 @@ function PokemonDetails() {
 
   return (
     <>
+      <NavBar />
       {pokemon && (
         <div className="container">
-          <h1>{pokemon.name}</h1>
-          <img src={pokemon.sprites.front_default} alt="" />
+          <h1>{pokemon.name.toUpperCase()}</h1>
+          <img
+            src={pokemon.sprites.front_default}
+            alt={`${pokemon.name}'s front side drawing`}
+            width={180}
+          />
           <div>
             <audio autoPlay="autoplay" controls="controls">
               <source src={pokemon.cries.latest} type="audio/ogg" />
