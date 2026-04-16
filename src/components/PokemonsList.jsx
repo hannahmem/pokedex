@@ -25,16 +25,15 @@ function PokemonsList() {
   return (
     <div>
       <h1>Pokédex</h1>
-      <ul>
+      <div>
         {pokemon &&
           pokemon.map((poke, index) => (
             <li key={index}>
               <h2>{poke.name}</h2>
               {/* <img src={} /> */}
-              {/* {console.log(poke)} */}
             </li>
           ))}
-      </ul>
+      </div>
 
       <button onClick={() => handlePreviousPage()}>Previous</button>
       <span>Page {pageNumber}</span>

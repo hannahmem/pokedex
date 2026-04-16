@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import NavBar from "./NavBar";
+import PokemonPreview from "./PokemonPreview";
 
 function LocationDetails() {
   const [location, setLocation] = useState(null);
@@ -22,9 +23,9 @@ function LocationDetails() {
       {location &&
         location.pokemon_encounters.map((pokemon, index) => (
           <li key={index}>
-            <Link to={`/pokemon/${pokemon.pokemon.name}`}>
-              {pokemon.pokemon.name}
-            </Link>
+            {/* {console.log(pokemon.pokemon.url)} */}
+            <PokemonPreview pokeUrl={pokemon.pokemon.url} />
+            <button>Capture</button>
           </li>
         ))}
     </div>

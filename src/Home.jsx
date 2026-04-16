@@ -1,5 +1,5 @@
 import LocationList from "./components/LocationList";
-import PokemonsList from "./components/PokemonsList";
+// import PokemonsList from "./components/PokemonsList";
 
 function Home() {
   return (
