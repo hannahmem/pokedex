@@ -1,10 +1,10 @@
 import "./App.css";
 import PokemonsList from "./components/PokemonsList";
-import PokemonDetails from "./components/PokemonDetails";
-import Home from "./Home";
+import PokemonDetails from "./pages/PokemonDetails";
+import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 import LocationList from "./components/LocationList";
-import LocationDetails from "./components/LocationDetails";
+import LocationDetails from "./pages/LocationDetails";
 
 function App() {
   return (

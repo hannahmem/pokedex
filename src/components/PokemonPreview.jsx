@@ -1,7 +1,28 @@
 import { useState, useEffect } from "react";
 
 function PokemonPreview({ pokeUrl }) {
-  const [pokemon, setPokemon] = useState([]);
+  const [pokemon, setPokemon] = useState(null);
+
+  const typeIcons = {
+    bug: "../../public/icons/bug.svg",
+    dark: "../../public/icons/dark.svg",
+    dragon: "../../public/icons/dragon.svg",
+    electric: "../../public/icons/electric.svg",
+    fairy: "../../public/icons/fairy.svg",
+    fighting: "../../public/icons/fighting.svg",
+    fire: "../../public/icons/fire.svg",
+    flying: "../../public/icons/flying.svg",
+    ghost: "../../public/icons/ghost.svg",
+    grass: "../../public/icons/grass.svg",
+    ground: "../../public/icons/ground.svg",
+    ice: "../../public/icons/ice.svg",
+    normal: "../../public/icons/normal.svg",
+    poison: "../../public/icons/poison.svg",
+    psychic: "../../public/icons/psychic.svg",
+    rock: "../../public/icons/rock.svg",
+    steel: "../../public/icons/steel.svg",
+    water: "../../public/icons/water.svg",
+  };
 
   useEffect(() => {
     fetch(pokeUrl)
@@ -22,7 +43,14 @@ function PokemonPreview({ pokeUrl }) {
       <p>Height {pokemon?.height}</p>
       <p>Weight {pokemon?.weight}</p>
       {pokemon?.types?.map((poke) => (
-        <li key={poke.slot}>{poke.type.name}</li>
+        <div key={poke.slot}>
+          <p>{poke.type.name}</p>
+          <img
+            src={typeIcons[poke.type.name]}
+            alt={`${poke.type.name} icon`}
+            width={25}
+          />
+        </div>
       ))}
     </div>
   );

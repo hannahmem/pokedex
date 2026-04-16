@@ -1,4 +1,4 @@
-import LocationList from "./components/LocationList";
+import LocationList from "../components/LocationList";
 // import PokemonsList from "./components/PokemonsList";
 
 function Home() {
