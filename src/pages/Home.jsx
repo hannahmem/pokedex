@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LocationList from "../components/LocationList";
 // import PokemonsList from "./components/PokemonsList";
 
@@ -6,6 +7,7 @@ function Home() {
     <div>
       {/* <PokemonsList /> */}
       <LocationList />
+      <Link to="/pokedex">Pokedex</Link>
     </div>
   );
 }
