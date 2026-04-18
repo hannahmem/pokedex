@@ -6,11 +6,11 @@ import { BrowserRouter } from "react-router-dom";
 import { PokedexProvider } from "./context/PokedexContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <BrowserRouter>
-      <PokedexProvider>
-        <App />
-      </PokedexProvider>
-    </BrowserRouter>
-  </StrictMode>,
+  // <StrictMode>
+  <BrowserRouter>
+    <PokedexProvider>
+      <App />
+    </PokedexProvider>
+  </BrowserRouter>,
+  // </StrictMode>,
 );

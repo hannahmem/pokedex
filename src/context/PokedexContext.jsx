@@ -13,7 +13,7 @@ export const PokedexProvider = ({ children }) => {
       // console.log(exists);
 
       if (exists) {
-        console.log(`${pokemon.name} is already in your pokédex!`);
+        alert(`${pokemon.name} is already in your pokédex!`);
         return prev;
       }
       return [...prev, pokemon];

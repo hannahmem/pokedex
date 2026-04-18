@@ -29,8 +29,7 @@ function LocationDetails() {
 
   return (
     <div>
-      <NavBar />
-      <Link to="/pokedex">Pokedex</Link>
+      <NavBar pokedex="Pokédex" />
       <h1>
         {location && location.location.name.toUpperCase()}{" "}
         {/* {console.log(location)} */}

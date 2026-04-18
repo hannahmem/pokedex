@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import Pokedex from "./Pokedex";
 
 function PokemonDetails() {
   const [pokemon, setPokemon] = useState(null);
@@ -17,7 +18,7 @@ function PokemonDetails() {
 
   return (
     <>
-      <NavBar />
+      <NavBar pokedex="Pokédex" />
       {pokemon && (
         <div className="container">
           <h1>{pokemon.name.toUpperCase()}</h1>
@@ -27,7 +28,7 @@ function PokemonDetails() {
             width={180}
           />
           <div>
-            <audio autoPlay="autoplay" controls="controls">
+            <audio controls="controls">
               <source src={pokemon.cries.latest} type="audio/ogg" />
             </audio>
           </div>
