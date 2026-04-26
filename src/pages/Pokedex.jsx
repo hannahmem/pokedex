@@ -10,7 +10,7 @@ function Pokedex() {
   // console.log(pokedex.length);
 
   return (
-    <div>
+    <div className="pokedex">
       <NavBar />
       {pokedex.length === 0 && (
         <h3>Your Pokédex is empty. Try catching your first Pokémon!</h3>

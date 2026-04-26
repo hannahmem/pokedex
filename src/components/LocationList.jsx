@@ -28,7 +28,6 @@ function LocationList() {
 
   return (
     <div>
-      <h1>Pokémon</h1>
       <h3>Choose an area to capture your pokémon</h3>
       {location &&
         location.map((loc, index) => (
