@@ -4,7 +4,9 @@ function NavBar({ pokedex }) {
   return (
     <nav>
       <Link to="/">Home</Link>
-      <Link to="/pokedex">{pokedex}</Link>
+      <Link to="/pokedex" className="pokedex-link">
+        {pokedex}
+      </Link>
     </nav>
   );
 }

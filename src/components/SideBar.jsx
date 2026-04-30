@@ -15,7 +15,7 @@ function SideBar() {
   return (
     <aside id="sidebar" className={`${isActive ? "open" : "close"}`}>
       <div className="pokedex-title">
-        <h2 className={`${isActive ? "open" : "close"}`}>Pokedex</h2>
+        <h2 className={`${isActive ? "open" : "close"}`}>Pokédex</h2>
         <button onClick={openSideBar}>
           <img
             src="../../public/icons/Pokedex.png"
@@ -34,7 +34,7 @@ function SideBar() {
       <Link
         to="/pokedex"
         className={`pokedex-link ${isActive ? "open" : "close"}`}>
-        Pokédex
+        My Pokémon
       </Link>
     </aside>
   );

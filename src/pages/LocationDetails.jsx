@@ -3,15 +3,17 @@ import { Link, useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import PokemonPreview from "../components/PokemonPreview";
 import { PokedexContext } from "../context/PokedexContext";
+import SideBar from "../components/SideBar";
 
 function LocationDetails() {
   const { id } = useParams();
   const [location, setLocation] = useState(null);
   const [pokemon, setPokemon] = useState([]);
   const { pokedex, addPokemon, removeFromStorage } = useContext(PokedexContext);
+  const url = `https://pokeapi.co/api/v2/location-area/${id}`;
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/location-area/${id}`)
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setLocation(data);
@@ -25,32 +27,37 @@ function LocationDetails() {
             }),
         );
       });
-  }, []);
+  }, [url]);
 
   return (
     <div>
       <NavBar pokedex="Pokédex" />
-      <h1>
-        {location && location.location.name.toUpperCase()}{" "}
-        {/* {console.log(location)} */}
-      </h1>
-      {pokemon &&
-        pokemon.map((poke, index) => (
-          <li key={index}>
-            <PokemonPreview
-              name={poke?.name}
-              image={poke?.sprites?.front_default}
-              height={poke?.height}
-              weight={poke?.weight}
-              type={poke?.types}
-            />
-            <button onClick={() => addPokemon(poke)}>Capture</button>
-            {/* <p>URLs {pokedex}</p> */}
-            <button onClick={() => removeFromStorage("pokemonUrl", poke)}>
-              Remove from storage
-            </button>
-          </li>
-        ))}
+      <SideBar />
+      <div className="page-container">
+        <h1>
+          {location && location.location.name.toUpperCase()}{" "}
+          {/* {console.log(location)} */}
+        </h1>
+        <div className="poke-container">
+          {pokemon &&
+            pokemon.map((poke, index) => (
+              <li key={index}>
+                <PokemonPreview
+                  name={poke?.name}
+                  image={poke?.sprites?.front_default}
+                  height={poke?.height}
+                  weight={poke?.weight}
+                  type={poke?.types}
+                />
+                <button onClick={() => addPokemon(poke)}>Capture</button>
+                {/* <p>URLs {pokedex}</p> */}
+                <button onClick={() => removeFromStorage("pokemonUrl", poke)}>
+                  Remove from storage
+                </button>
+              </li>
+            ))}
+        </div>
+      </div>
     </div>
   );
 }

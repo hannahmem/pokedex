@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Pokedex from "./Pokedex";
+import SideBar from "../components/SideBar";
 
 function PokemonDetails() {
   const [pokemon, setPokemon] = useState(null);
@@ -19,8 +20,9 @@ function PokemonDetails() {
   return (
     <>
       <NavBar pokedex="Pokédex" />
+      <SideBar />
       {pokemon && (
-        <div className="container">
+        <div className="details-container">
           <h1>{pokemon.name.toUpperCase()}</h1>
           <img
             src={pokemon.sprites.front_default}
