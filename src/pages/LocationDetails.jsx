@@ -9,7 +9,7 @@ function LocationDetails() {
   const { id } = useParams();
   const [location, setLocation] = useState(null);
   const [pokemon, setPokemon] = useState([]);
-  const { pokedex, addPokemon, removeFromStorage } = useContext(PokedexContext);
+  const { pokedex, addPokemon } = useContext(PokedexContext);
   const url = `https://pokeapi.co/api/v2/location-area/${id}`;
 
   useEffect(() => {
@@ -51,9 +51,6 @@ function LocationDetails() {
                 />
                 <button onClick={() => addPokemon(poke)}>Capture</button>
                 {/* <p>URLs {pokedex}</p> */}
-                <button onClick={() => removeFromStorage("pokemonUrl", poke)}>
-                  Remove from storage
-                </button>
               </li>
             ))}
         </div>

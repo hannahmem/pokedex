@@ -24,9 +24,14 @@ function SideBar() {
           />
         </button>
       </div>
+      {pokemon.length === 0 && (
+        <h3 className={`${isActive ? "open" : "close"}`}>
+          Your Pokédex is empty. Try catching your first Pokémon!
+        </h3>
+      )}
       {/* <Pokedex /> */}
       {pokemon.map((poke, index) => (
-        <Link to={`pokemon/${poke.id}`} key={index} className="sidebar-poke">
+        <Link to={`/pokemon/${poke.id}`} key={index} className="sidebar-poke">
           <img src={poke.sprites.front_default} alt={`${poke.name} icon`} />
           <h3>{poke.name}</h3>
         </Link>

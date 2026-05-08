@@ -7,18 +7,18 @@ import SideBar from "../components/SideBar";
 
 function Pokedex() {
   //   const [pokemon, setPokemon] = useState(null);
-  const { pokedex } = useContext(PokedexContext);
+  const { pokedex, removeFromPokedex } = useContext(PokedexContext);
   // console.log(pokedex.length);
 
   return (
     <div className="pokedex">
       <NavBar />
       <SideBar />
-      {pokedex.length === 0 && (
-        <h3>Your Pokédex is empty. Try catching your first Pokémon!</h3>
-      )}
       <div className="page-container">
         <h1>My Pokémon</h1>
+        {pokedex.length === 0 && (
+          <h3>Your Pokédex is empty. Try catching your first Pokémon!</h3>
+        )}
         <div className="poke-container">
           {pokedex.map((poke, index) => (
             <li key={index}>
@@ -30,6 +30,9 @@ function Pokedex() {
                 type={poke?.types}
               />
               <Link to={`/pokemon/${poke.id}`}>View Pokemon details</Link>
+              <button onClick={() => removeFromPokedex(poke)}>
+                Remove from pokédex
+              </button>
             </li>
           ))}
         </div>

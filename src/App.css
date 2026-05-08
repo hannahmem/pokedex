@@ -117,7 +117,7 @@ nav {
     transition: all 300ms ease-in-out;
   }
 
-  & h2.close, a.close {
+  & h2.close, a.close, h3.close {
     display: none;
   }
 

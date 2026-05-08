@@ -6,6 +6,7 @@ export const PokedexProvider = ({ children }) => {
   const [pokedex, setPokedex] = useState(() => {
     return JSON.parse(localStorage.getItem("pokemonUrl") || "[]");
   });
+  const [randomNum, setRandomNum] = useState(Math.floor(Math.random() * 100));
 
   const addPokemon = (pokemon) => {
     setPokedex((prev) => {
@@ -16,12 +17,21 @@ export const PokedexProvider = ({ children }) => {
         alert(`${pokemon.name} is already in your pokédex!`);
         return prev;
       }
-      return [...prev, pokemon];
+
+      setRandomNum(Math.floor(Math.random() * 100));
+      console.log(randomNum);
+      if (randomNum % 2 === 0) {
+        alert("Pokemon added to your pokedex");
+        return [...prev, pokemon];
+      } else {
+        alert("you failed to catch the pokemon");
+        return prev;
+      }
     });
   };
 
-  const removeFromStorage = (key) => {
-    localStorage.removeItem(key);
+  const removeFromPokedex = (pokemon) => {
+    setPokedex((prev) => prev.filter((poke) => poke.name !== pokemon.name));
   };
 
   useEffect(() => {
@@ -29,7 +39,7 @@ export const PokedexProvider = ({ children }) => {
   }, [pokedex]);
 
   return (
-    <PokedexContext.Provider value={{ pokedex, addPokemon, removeFromStorage }}>
+    <PokedexContext.Provider value={{ pokedex, addPokemon, removeFromPokedex }}>
       {children}
     </PokedexContext.Provider>
   );
